@@ -1,0 +1,16 @@
+<table datatable [dtOptions]="dtOptions" class="row-border hover stripe">
+<thead>
+  <tr>
+    <th>Index</th>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let person of persons; even as e;" [ngClass]="e ? 'odd' : 'even'">
+    <td>{{ a }}</td>
+    <td>{{ person.name }}</td>
+    <td>{{ person.age }}</td>
+  </tr>
+</tbody>
+</table>

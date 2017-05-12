@@ -1,0 +1,17 @@
+<h2>Person Detail</h2>
+<h3><i>FormControl in a FormGroup</i></h3>
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name" required>
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="center-block">Age:
+    <input type="text" formControlName="age" name="age" number required placeholder="Age"/>
+    <p *ngIf="personForm.controls.age.errors?.number">Please input a number.</p>
+    </label>
+  </div>
+  <button type="submit" class="btn btn-success">Save</button>
+</form>
+<app-person-list [persons]="persons" *ngIf="persons?.length>0"></app-person-list>
