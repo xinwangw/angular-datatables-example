@@ -1,0 +1,19 @@
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()" novalidate>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  <tbody formArrayName="persons">
+          <tr *ngFor="let person of personForm.controls.persons.controls; let i=index" [formGroupName]="i">
+            <td><input class="form-control" formControlName="name" required></td>
+            <td><input type="text" formControlName="age" name="age" number required placeholder="Age"/></td>
+          </tr>
+  </tbody>
+  <tr (click)="addPerson()">
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<button type="submit" class="btn btn-success">Save</button>
+</form>
