@@ -12,6 +12,11 @@ import { AppComponent } from './app.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonListComponent } from './person-list/person-list.component';
 import { InputTableComponent } from './input-table/input-table.component';
+import { DateInputComponent } from './date-input/date-input.component';
+import { MyDateISOValidator } from './date-input/date-validaor';
+import { RequiredDateValidator } from './date-input/required-date-validator';
+import { ValidationMessagesComponent } from './validation-messages/validation-messages.component';
+import { TextFieldInputComponent } from './text-field-input/text-field-input.component';
 
 const appRoutes: Routes = [
   { path: 'inputtable', component: InputTableComponent },
@@ -23,7 +28,12 @@ const appRoutes: Routes = [
     AppComponent,
     PersonDetailComponent,
     PersonListComponent,
-    InputTableComponent
+    InputTableComponent,
+    DateInputComponent,
+    MyDateISOValidator,
+    RequiredDateValidator,
+    ValidationMessagesComponent,
+    TextFieldInputComponent
   ],
   imports: [
     BrowserModule,

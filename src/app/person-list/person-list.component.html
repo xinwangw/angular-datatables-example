@@ -4,13 +4,16 @@
     <th>Index</th>
     <th>Name</th>
     <th>Age</th>
+    <th>Birthday</th>
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let person of persons; even as e;" [ngClass]="e ? 'odd' : 'even'">
-    <td>{{ a }}</td>
+  <tr *ngFor="let person of persons; even as e; let i = index" [ngClass]="e ? 'odd' : 'even'"
+    (click)="edit(i)">
+    <td>{{ person.id }}</td>
     <td>{{ person.name }}</td>
     <td>{{ person.age }}</td>
+    <td>{{ person.birthday }}</td>
   </tr>
 </tbody>
 </table>

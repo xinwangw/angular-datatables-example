@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+import {LocalStorageService, LocalStorage} from 'ngx-webstorage';
 import { Subject } from 'rxjs/Rx';
 
 @Component({
@@ -20,9 +20,18 @@ export class PersonListComponent implements OnInit {
       paging: false,
       info: false,
       searching: false,
-      scrollY:        "200px",
+      scrollY:        "400px",
       scrollCollapse: true
     };
+    this.persons = this.persons.sort((d1, d2) => {
+      return d1.id > d2.id;
+    });
+  }
+
+  edit(index) {
+    let person = this.persons[index];
+    person.index = index;
+    this.localStorageService.store('current', person);
   }
 
 }

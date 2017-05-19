@@ -2,17 +2,14 @@
 <h3><i>FormControl in a FormGroup</i></h3>
 <a routerLink="inputtable">Input table</a>
 <form [formGroup]="personForm" (ngSubmit)="onSubmit()" novalidate>
-  <div class="form-group">
-    <label class="center-block">Name:
-      <input class="form-control" formControlName="name" required>
-    </label>
-  </div>
-  <div class="form-group">
-    <label class="center-block">Age:
-    <input type="text" formControlName="age" name="age" number required placeholder="Age"/>
-    <p *ngIf="personForm.controls.age.errors?.number">Please input a number.</p>
-    </label>
-  </div>
+  <app-text-field-input formControlName="name" required ngDefaultControl
+      label="Name"
+      [control]="personForm.controls.name"></app-text-field-input>
+  <app-text-field-input formControlName="age" required number ngDefaultControl
+      label="Age"
+      [control]="personForm.controls.age"></app-text-field-input>
+  <app-date-input formControlName="birthday" label="Birthday" [control]="personForm.controls.birthday" ngDefaultControl mydateISO requiredDate ></app-date-input>
   <button type="submit" class="btn btn-success">Save</button>
+  <button type="button" class="btn btn-success" (click)="clear()">Clear List</button>
 </form>
 <app-person-list [persons]="persons" *ngIf="persons?.length>0"></app-person-list>
