@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,9 +17,11 @@ import { MyDateISOValidator } from './date-input/date-validaor';
 import { RequiredDateValidator } from './date-input/required-date-validator';
 import { ValidationMessagesComponent } from './validation-messages/validation-messages.component';
 import { TextFieldInputComponent } from './text-field-input/text-field-input.component';
+import { ServerErrorHandler, ServerErrorComponent } from './server-error-component/server-error-component.component';
 
 const appRoutes: Routes = [
   { path: 'inputtable', component: InputTableComponent },
+  { path: 'servererror', component: ServerErrorComponent },
   { path: '', component: PersonDetailComponent }
 ];
 
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     MyDateISOValidator,
     RequiredDateValidator,
     ValidationMessagesComponent,
-    TextFieldInputComponent
+    TextFieldInputComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,10 @@ const appRoutes: Routes = [
     DataTablesModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [{
+      provide: ErrorHandler,
+      useClass: ServerErrorHandler
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
