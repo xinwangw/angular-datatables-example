@@ -43,8 +43,8 @@ export class PersonListComponent implements OnInit {
 
     this.testArray = this.testArray.map((t) => {return {a: t.a+' new', b: Number(t.b)+8}})
     console.log('this.testArray', this.testArray);
-    this.service.search()
-      .subscribe(data => console.log(data));
+    /*this.service.search()
+      .subscribe(data => console.log(data));*/
   }
 
   edit(index) {

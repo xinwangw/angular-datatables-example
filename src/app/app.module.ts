@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomFormsModule } from 'ng2-validation'
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { DataTablesModule } from 'angular-datatables';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppComponent } from './app.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
@@ -18,9 +19,11 @@ import { RequiredDateValidator } from './date-input/required-date-validator';
 import { ValidationMessagesComponent } from './validation-messages/validation-messages.component';
 import { TextFieldInputComponent } from './text-field-input/text-field-input.component';
 import { ServerErrorHandler, ServerErrorComponent } from './server-error-component/server-error-component.component';
+import { PersonTableComponent } from './person-table/person-table.component';
 
 const appRoutes: Routes = [
   { path: 'inputtable', component: InputTableComponent },
+  { path: 'persons', component: PersonTableComponent },
   { path: 'servererror', component: ServerErrorComponent },
   { path: '', component: PersonDetailComponent }
 ];
@@ -36,9 +39,11 @@ const appRoutes: Routes = [
     RequiredDateValidator,
     ValidationMessagesComponent,
     TextFieldInputComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    PersonTableComponent
   ],
   imports: [
+    NgxDatatableModule,
     BrowserModule,
     FormsModule,
     HttpModule,

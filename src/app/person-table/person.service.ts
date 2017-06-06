@@ -4,13 +4,14 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class CitiesService {
+export class PersonServerService {
   constructor(private http: Http) {
   }
 
-  search(): Observable<{}> {
+  public getPagedData(page: any): Observable<Array<any>> {
     return this.http
-      .get(`http://localhost:3000/api/cities?name=Miami`)
-      .map(response => response.json());
+      .get(`http://localhost:3000/api/persons`)
+      .map(response => response.json() as Array<any>);
   }
+
 }
